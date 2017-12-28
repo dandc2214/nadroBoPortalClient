@@ -1,0 +1,31 @@
+<div class="full-screen" style="background-image: url('assets/img/escheresque.png'); box-shadow: -7px 0px 7px 0px #e2e2e2;">
+	<!-- TODO change img src for a class -->
+	<div fxLayout="column" fxLayoutAlign="space-between center" style="height: 100%;">
+
+		<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="center center">
+			<div class="container" fxLayout="row" fxLayoutAlign="space-between center">
+				<span>UBICTUM</span>
+				<!-- <div class="ubictumToolBarIcon"></div> -->
+				<div>
+					<mat-icon matSuffix>account_circle</mat-icon>
+				</div>
+			</div>
+		</mat-toolbar>
+
+		<div *ngIf="isAdmin;then manageUsers else viewDocument"></div>
+
+		<ng-template #manageUsers>
+			<div fxLayout="row" fxFlex fxLayoutAlign="center space-around">
+				<!-- <app-user-management></app-user-management> -->
+				<app-create-user></app-create-user>
+			</div>
+		</ng-template>
+
+		<ng-template #viewDocument>
+			<div fxLayout="row" fxLayoutAlign="space-between center">
+				<iframe src="http://www.su.co/" frameborder="0" width="100%" style="height: 1000px;"></iframe>
+			</div>
+		</ng-template>
+
+	</div>
+</div>

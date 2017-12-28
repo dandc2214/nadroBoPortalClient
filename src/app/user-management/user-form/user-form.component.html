@@ -1,0 +1,22 @@
+<div class="vertical-form">
+	<div class="row">
+		<mat-form-field class="basis-95">
+			<input type="numer" min="0" matInput placeholder="SapId" [(ngModel)]="user.sapId">
+		</mat-form-field>
+	</div>
+	<div class="row">
+		<mat-form-field class="basis-45">
+			<input type="text" matInput placeholder="Nombre" [(ngModel)]="user.name">
+		</mat-form-field>
+
+		<mat-form-field class="basis-45">
+			<input type="text" matInput placeholder="Apellido" [(ngModel)]="user.lastname">
+		</mat-form-field>
+	</div>
+
+	<div class="row">
+		<mat-form-field class="basis-95">
+			<input type="email" matInput placeholder="Email" [(ngModel)]="user.email">
+		</mat-form-field>
+	</div>
+</div>
