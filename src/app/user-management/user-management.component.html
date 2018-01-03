@@ -1,55 +1,40 @@
 <mat-card style="width: 850px;">
-	<!-- <mat-list>
-		<h3 mat-subheader>Users</h3>
-		<mat-list-item *ngFor="let user of users">
-			<mat-icon mat-list-icon>mode_edit</mat-icon>
-			<mat-icon mat-list-icon>delete</mat-icon>
-			<h4 mat-line>{{folder.name}}</h4>
-			<p mat-line> {{folder.updated | date}} </p>
-		</mat-list-item>
-		<mat-divider></mat-divider>
-		<h3 mat-subheader>Notes</h3>
-		<mat-list-item *ngFor="let note of notes">
-			<mat-icon mat-list-icon>delete</mat-icon>
-			<h4 mat-line>{{note.name}}</h4>
-			<p mat-line> {{note.updated | date}} </p>
-		</mat-list-item>
-	</mat-list> -->
 
 	<mat-table #table [dataSource]="dataSource">
 
-		<!-- Position Column -->
-		<ng-container matColumnDef="position">
-			<mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-			<mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+		<ng-container matColumnDef="sapId">
+			<mat-header-cell *matHeaderCellDef> SapID </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.sapId}} </mat-cell>
 		</ng-container>
 
-		<!-- Name Column -->
 		<ng-container matColumnDef="name">
-			<mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+			<mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
 			<mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
 		</ng-container>
 
-		<!-- Weight Column -->
-		<ng-container matColumnDef="weight">
-			<mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-			<mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+		<ng-container matColumnDef="lastname">
+			<mat-header-cell *matHeaderCellDef> Apellido </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.lastname}} </mat-cell>
 		</ng-container>
 
-		<!-- Symbol Column -->
-		<ng-container matColumnDef="symbol">
-			<mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-			<mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+		<ng-container matColumnDef="username">
+			<mat-header-cell *matHeaderCellDef> Usuario </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+		</ng-container>
+
+		<ng-container matColumnDef="email">
+			<mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+			<mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
 		</ng-container>
 
 		<!-- Edit Delete Actions -->
 		<ng-container matColumnDef="manageActions">
 			<mat-header-cell *matHeaderCellDef></mat-header-cell>
-			<mat-cell *matCellDef>
-				<a class="tableAction" routerLink="">
+			<mat-cell *matCellDef="let element">
+				<a class="tableAction" (click)="editUser(element)">
 					<mat-icon mat-list-icon>mode_edit</mat-icon>
 				</a>
-				<a class="tableAction">
+				<a class="tableAction" (click)="deleteUser(element)">
 					<mat-icon mat-list-icon>delete</mat-icon>
 				</a>
 			</mat-cell>
@@ -61,39 +46,7 @@
 	<mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
 	</mat-paginator>
 
-	<!-- <button mat-raised-button color="primary">Nuevo Usuario</button> -->
-</mat-card>
-
-<!-- <div class="example-container mat-elevation-z8">
-	<div class="example-header">
-		<mat-form-field>
-			<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-		</mat-form-field>
+	<div class="row" style="justify-content: flex-end;">
+		<button mat-raised-button color="primary" routerLink="create">Nuevo Usuario</button>
 	</div>
-
-	<mat-table #table [dataSource]="dataSource">
-
-		<ng-container matColumnDef="position">
-			<mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-			<mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-		</ng-container>
-
-		<ng-container matColumnDef="name">
-			<mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-			<mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-		</ng-container>
-
-		<ng-container matColumnDef="weight">
-			<mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-			<mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
-		</ng-container>
-
-		<ng-container matColumnDef="symbol">
-			<mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-			<mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-		</ng-container>
-
-		<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-		<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-	</mat-table>
-</div> -->
+</mat-card>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-user',
@@ -10,10 +12,14 @@ export class CreateUserComponent implements OnInit {
 
   user: User;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.user = {sapId:"", name: "ggg", lastname: "", email: ""};
+    this.user = {id:null, sapId:null, name: "", lastname: "", email: "", username:"", password:""};
+  }
+
+  sendToUserList() {
+    this.router.navigate(['user']);
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserDomainService } from '../user-management/user-domain.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,7 @@ export class DashboardComponent implements OnInit {
 
   isAdmin: Boolean = true;
 
-  constructor() { }
+  constructor(private userApiConsumer: UserDomainService) { }
 
   ngOnInit() {
   }

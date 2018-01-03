@@ -6,6 +6,16 @@
 	</div>
 	<div class="row">
 		<mat-form-field class="basis-45">
+			<input type="text" matInput placeholder="Nombre de Usuario" [(ngModel)]="user.username">
+		</mat-form-field>
+
+		<mat-form-field class="basis-45">
+			<input type="text" matInput placeholder="Password" [(ngModel)]="user.password">
+		</mat-form-field>
+	</div>
+
+	<div class="row">
+		<mat-form-field class="basis-45">
 			<input type="text" matInput placeholder="Nombre" [(ngModel)]="user.name">
 		</mat-form-field>
 
