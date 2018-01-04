@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  loginError: Boolean;
+
   // MAybe move login request to service
   constructor(private cookieService: CookieService, private http: HttpClient, private router: Router) {
 
@@ -26,13 +28,13 @@ export class LoginComponent implements OnInit {
     },{
       headers: new HttpHeaders().set('Content-Type', 'application/json')
     }).subscribe(
-      data => {      
-        console.log(data);
+      data => {
         this.cookieService.set( 'access_token', data.access_token );
         this.cookieService.set( 'user_roles', JSON.stringify(data.roles) );
+        this.cookieService.set( 'username', data.username );
         this.router.navigate(['user']);
       },
-      err => console.error(err),
+      err => {console.error("error" + err); this.loginError= true;},
       () => console.log('Login request done')
     );
 

@@ -15,8 +15,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserManagementComponent } from './user-management/user-management.component';
+import { MatPaginatorIntl } from '@angular/material';
+import { getSpanishPaginatorIntl } from './user-management/user-management.component';
 
 import { CookieService } from 'ngx-cookie-service';
+import { YesNoDialogComponent } from './yes-no-dialog/yes-no-dialog.component';
 
 
 @NgModule({
@@ -24,7 +27,8 @@ import { CookieService } from 'ngx-cookie-service';
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    UserManagementComponent
+    YesNoDialogComponent,
+    UserManagementComponent    
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,8 @@ import { CookieService } from 'ngx-cookie-service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [CookieService, UserDomainService],
-  bootstrap: [AppComponent]
+  providers: [CookieService, UserDomainService, { provide: MatPaginatorIntl, useValue: getSpanishPaginatorIntl() }],
+  bootstrap: [AppComponent],
+  entryComponents: [YesNoDialogComponent]
 })
 export class AppModule { }

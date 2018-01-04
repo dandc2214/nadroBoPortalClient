@@ -4,7 +4,7 @@
 
 		<ng-container matColumnDef="sapId">
 			<mat-header-cell *matHeaderCellDef> SapID </mat-header-cell>
-			<mat-cell *matCellDef="let element"> {{element.sapId}} </mat-cell>
+			<mat-cell *matCellDef="let element"> {{element.nadroSapId}} </mat-cell>
 		</ng-container>
 
 		<ng-container matColumnDef="name">
@@ -20,11 +20,6 @@
 		<ng-container matColumnDef="username">
 			<mat-header-cell *matHeaderCellDef> Usuario </mat-header-cell>
 			<mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
-		</ng-container>
-
-		<ng-container matColumnDef="email">
-			<mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
-			<mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
 		</ng-container>
 
 		<!-- Edit Delete Actions -->

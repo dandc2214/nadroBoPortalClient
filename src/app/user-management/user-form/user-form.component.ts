@@ -10,10 +10,12 @@ export class UserFormComponent implements OnInit {
 
   @Input() user: User;
 
+  // we dont show password cause is encrypted
+  newPassword: String;
+
   constructor() { }
 
-  ngOnInit() {
-    // this.user = {sapId:"", name: "ggg", lastname: "", email: ""};
-  }
+  ngOnInit() {    
+  }  
 
 }
